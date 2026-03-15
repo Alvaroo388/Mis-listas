@@ -69,7 +69,19 @@ public class ListaSE<T extends Comparable<T>> implements Lista<T> {
     public boolean existeDato(T dato){
         return get(dato) != null;
     }
+    public void invertir(){
+        ElementoSE<T> anterior = null;
+        ElementoSE<T> actual = primero;
+        ElementoSE<T> siguiente;
 
+        while(actual != null){
+            siguiente = actual.getSiguiente();
+            actual.setSiguiente(anterior);
+            anterior = actual;
+            actual = siguiente;
+        }
+        primero = anterior;
+    }
 
 
 }
