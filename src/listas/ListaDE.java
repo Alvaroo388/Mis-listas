@@ -1,9 +1,9 @@
 package listas;
 
 public class ListaDE<T extends Comparable<T>> implements Lista<T>{
-    private ElementoDE<T> primero;
-    private ElementoDE<T> ultimo;
-    private int size;
+    protected ElementoDE<T> primero;
+    protected ElementoDE<T> ultimo;
+    protected int size;
 
     public ListaDE() {
         this.primero = null;

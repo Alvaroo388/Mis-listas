@@ -1,8 +1,8 @@
 package listas;
 
 public class ListaSE<T extends Comparable<T>> implements Lista<T> {
-    private ElementoSE<T> primero;
-    private int size;
+    protected ElementoSE<T> primero;
+    protected int size;
 
     public ListaSE() {
         this.primero = null;
@@ -12,8 +12,12 @@ public class ListaSE<T extends Comparable<T>> implements Lista<T> {
     @Override
     public void add(T dato) {
         ElementoSE<T> nuevo = new ElementoSE<>(dato);
-        nuevo.setSiguiente(primero);
-        primero = nuevo;
+        if (primero != null) {
+            nuevo.setSiguiente(primero);
+            primero = nuevo;
+        }else{
+            primero = nuevo;
+        }
         size++;
     }
 
