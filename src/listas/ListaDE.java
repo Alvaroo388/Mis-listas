@@ -1,6 +1,6 @@
 package listas;
 
-public class ListaDE<T extends Comparable<T>> implements Lista<>{
+public class ListaDE<T extends Comparable<T>> implements Lista<T>{
     private ElementoDE<T> primero;
     private ElementoDE<T> ultimo;
     private int size;
@@ -22,6 +22,7 @@ public class ListaDE<T extends Comparable<T>> implements Lista<>{
             primero.setAnterior(nuevo);
             nuevo.setSiguiente(primero);
             primero = nuevo;
+
         }
         size++;
 
@@ -77,8 +78,8 @@ public class ListaDE<T extends Comparable<T>> implements Lista<>{
     }
 
     @Override
-    public MiIterador getIterador() {
-        return null;
+    public MiIterador<T> getIterador() {
+        return new IteradorDE<>(primero);
     }
 
     public boolean existeDato(T dato){
